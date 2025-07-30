@@ -1,14 +1,25 @@
 import { Component, computed, input } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { Credential } from '../core/services/credential';
+import { Token } from '../core/services/token';
 
 @Component({
   selector: 'app-layout',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterModule],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
 })
 export class Layout {
   userDetail = computed(() => this.credential.userDetail());
-  constructor(private readonly credential: Credential) {}
+  constructor(
+    private readonly credential: Credential,
+    private readonly tokenService: Token,
+    private readonly router: Router
+  ) {}
+
+  logOut() {
+    this.credential.userDetail.set(null);
+    this.tokenService.removeToken();
+    this.router.navigate(['/login']);
+  }
 }

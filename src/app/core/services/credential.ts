@@ -14,7 +14,11 @@ export class Credential {
       this.userDetail.set(null);
     }
     effect(() => {
-      localStorage.setItem('userDetails', JSON.stringify(this.userDetail()));
+      if (this.userDetail()) {
+        localStorage.setItem('userDetails', JSON.stringify(this.userDetail()));
+      } else {
+        localStorage.removeItem('userDetails');
+      }
     });
   }
 }

@@ -1,11 +1,65 @@
 <div class="row w-100 mx-0 bg-white">
-  <div class="col-2 sidebar">
+  <div class="col-2 p-0 sidebar">
     <div class="vh-100 d-flex flex-column">
       <div class="text-center">
         <img class="logo" src="/icons/logo.svg" alt="logo" />
       </div>
-      <div class="flex-fill"></div>
-      <div></div>
+      <div class="flex-fill">
+        <nav class="nav flex-column nav-pills">
+          <!-- Profile -->
+          <a
+            routerLink="/profile"
+            routerLinkActive="active rounded-bottom-5 rounded-start-0 "
+            class="nav-link rounded-0"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Profile
+          </a>
+          <!-- User page -->
+          <a
+            routerLink="/users"
+            routerLinkActive="active rounded-bottom-5 rounded-start-0 "
+            class="nav-link rounded-0"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            User Page</a
+          >
+          <!-- Product Page -->
+          <a
+            routerLink="/products"
+            routerLinkActive="active rounded-bottom-5 rounded-start-0 "
+            class="nav-link rounded-0"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Product Page
+          </a>
+        </nav>
+      </div>
+      <div class="pb-5">
+        <nav class="nav flex-column">
+          <!-- Setting -->
+          <a class="nav-link text-dark d-flex align-items-center gap-2">
+            <i class="fa-solid fa-gear"></i>
+            <span>Setting</span>
+          </a>
+
+          <!-- Help -->
+          <a class="nav-link text-dark d-flex align-items-center gap-2">
+            <i class="fa-regular fa-circle-question"></i>
+            <span>Help</span>
+          </a>
+
+          <!-- Logout -->
+          <a
+            role="button"
+            class="nav-link text-dark d-flex align-items-center gap-2"
+            (click)="logOut()"
+          >
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
+        </nav>
+      </div>
     </div>
   </div>
   <div class="col-10 px-0">
