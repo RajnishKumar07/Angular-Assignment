@@ -18,6 +18,12 @@ export const layoutRoutes: Routes = [
         data: {},
       },
       {
+        path: 'users',
+        loadComponent: () =>
+          import('../features/users/users').then((c) => c.Users),
+        data: {},
+      },
+      {
         path: 'products',
         loadComponent: () =>
           import('../features/products/products').then((c) => c.Products),
