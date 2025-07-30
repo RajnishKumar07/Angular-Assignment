@@ -1,1 +1,135 @@
-<p>login works!</p>
+<!-- <div
+  class="login-container d-flex align-items-center justify-content-center min-vh-100 bg-light"
+>
+  <div class="login-box border rounded p-5 shadow-sm">
+    <div class="text-center mb-4">
+      <img src="assets/logo.png" alt="Logo" width="60" />
+    </div>
+
+    <h4 class="text-center fw-bold mb-2">WELCOME BACK</h4>
+    <p class="text-center text-muted small mb-4">
+      Please login to your account
+    </p>
+
+    <form>
+      <div class="form-group mb-3">
+        <label for="username" class="form-label"> USERNAME</label>
+        <input type="text" class="form-control" id="username" />
+      </div>
+
+      <div class="form-group mb-3">
+        <label for="password" class="form-label"> PASSWORD</label>
+        <input type="password" class="form-control" id="password" />
+      </div>
+
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="rememberMe" />
+          <label class="form-check-label" for="rememberMe">Remember Me</label>
+        </div>
+        <a href="#" class="text-decoration-none small">Forgot password?</a>
+      </div>
+
+      <div class="d-grid mb-3">
+        <button type="submit" class="btn btn-primary btn-block login-btn">
+          <i class="bi bi-box-arrow-in-right"></i> LOGIN
+        </button>
+      </div>
+
+      <div class="text-center">
+        <span class="small"
+          >Don't have an account?
+          <a href="#" class="text-danger fw-bold">Sign up.</a></span
+        >
+      </div>
+    </form>
+  </div>
+</div> -->
+<div
+  class="login-container vh-100 w-100 d-flex flex-column gap-4 align-items-center justify-content-center"
+>
+  <div>
+    <img class="logo" src="/icons/logo.svg" alt="logo" />
+  </div>
+  <div>
+    <div class="card text-center rounded-4 border-2 bg-white">
+      <div class="card-body p-5">
+        <h5 class="card-title text-uppercase fs-4">Welcome back</h5>
+        <p class="card-text form-text opacity-50">
+          Please login to your account
+        </p>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="row gy-4">
+            <div class="col-12 text-start">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fa-regular fa-user"></i>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="USERNAME"
+                  formControlName="username"
+                />
+              </div>
+              @if(loginForm.get('username')?.touched
+              &&loginForm.get('username')?.errors?.['required']){
+              <label for="" class="text-danger">Please enter username</label>
+              }
+            </div>
+            <div class="col-12 text-start">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="fa-solid fa-lock"></i>
+                </span>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="PASSWORD"
+                  formControlName="password"
+                />
+              </div>
+              @if(loginForm.get('username')?.touched
+              &&loginForm.get('username')?.errors?.['required']){
+              <label for="" class="text-danger">Please enter password</label>
+              }
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="checkDefault"
+              />
+              <label class="form-check-label text-muted" for="checkDefault">
+                Default checkbox
+              </label>
+            </div>
+            <a href="" class="nav-link fw-semibold link-dark"
+              >Forget password?</a
+            >
+          </div>
+          <div class="d-flex justify-content-center mt-5">
+            <button
+              class="shadow btn btn-primary rounded-4 text-uppercase px-5 py-2 text-white"
+              type="submit"
+            >
+              <i class="fa-solid fa-right-to-bracket"></i>
+              login
+            </button>
+          </div>
+          <div class="text-center mt-4">
+            <span class="small fw-semibold"
+              >Don't have an account?
+              <a href="#" class="text-danger fw-bold nav-link d-inline"
+                >Sign up.</a
+              ></span
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

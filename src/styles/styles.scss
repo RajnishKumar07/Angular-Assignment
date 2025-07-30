@@ -1,3 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import "custom-bootstrap";
-@import "~font-awesome/css/font-awesome.min.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import 'ngx-toastr/toastr';
+
+
+
+
+.form-control,.input-group-text{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+}
