@@ -1,1 +1,49 @@
-<p>profile works!</p>
+<div class="container py-5">
+  <div class="bg-light p-4 rounded-4 shadow-lg">
+    <div
+      class="row align-items-center bg-primary text-white rounded-4 p-4 position-relative"
+    >
+      <!-- Left Content -->
+      <div class="col-md-8">
+        <h4 class="fw-bold text-uppercase">
+          Welcome,
+          <span class="fw-normal"
+            >{{ userDetail()?.firstName }} {{ userDetail()?.lastName }}!</span
+          >
+        </h4>
+
+        <div class="row mt-4">
+          <div class="col-6 mb-3">
+            <small class="opacity-75">Test Team</small><br />
+            <span class="fw-semibold">6666666666</span>
+          </div>
+          <div class="col-6 mb-3">
+            <small class="opacity-75">E-mail</small><br />
+            <span class="fw-semibold">{{ userDetail()?.email }}</span>
+          </div>
+          <div class="col-6">
+            <small class="opacity-75">Sales Person</small><br />
+            <span class="fw-semibold">Sales person name</span>
+          </div>
+          <div class="col-6">
+            <small class="opacity-75">Contact Number</small><br />
+            <span class="fw-semibold">0000000000</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Image -->
+      <div class="col-md-4 text-center position-relative">
+        <img
+          [src]="userDetail()?.image"
+          class="rounded-circle border border-white border-3"
+          style="width: 140px; height: 140px; object-fit: cover"
+          alt="Profile"
+        />
+        <i
+          class="fa-solid fa-gear position-absolute top-0 end-0 me-3 mt-2 text-white"
+        ></i>
+      </div>
+    </div>
+  </div>
+</div>

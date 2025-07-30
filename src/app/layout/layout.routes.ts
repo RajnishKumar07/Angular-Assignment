@@ -15,6 +15,7 @@ export const layoutRoutes: Routes = [
         path: 'profile',
         loadComponent: () =>
           import('../features/profile/profile').then((c) => c.Profile),
+        data: {},
       },
     ],
   },

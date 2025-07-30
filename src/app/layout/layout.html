@@ -1,2 +1,28 @@
-<p>layout works!</p>
-<router-outlet></router-outlet>
+<div class="row w-100 mx-0 bg-white">
+  <div class="col-2 sidebar">
+    <div class="vh-100 d-flex flex-column">
+      <div class="text-center">
+        <img class="logo" src="/icons/logo.svg" alt="logo" />
+      </div>
+      <div class="flex-fill"></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="col-10 px-0">
+    <nav class="navbar shadow shadow-sm bg-white">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Dashboard </span>
+        <div>
+          <img
+            [src]="userDetail()?.image"
+            class="rounded-circle thumbnail"
+            alt="image"
+          />
+        </div>
+      </div>
+    </nav>
+    <div class="p-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
