@@ -17,6 +17,12 @@ export const layoutRoutes: Routes = [
           import('../features/profile/profile').then((c) => c.Profile),
         data: {},
       },
+      {
+        path: 'products',
+        loadComponent: () =>
+          import('../features/products/products').then((c) => c.Products),
+        data: {},
+      },
     ],
   },
 ];

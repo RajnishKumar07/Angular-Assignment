@@ -1,1 +1,56 @@
-<p>products works!</p>
+<div class="container my-5">
+  <div class="bg-white p-4 rounded-4 shadow-sm">
+    <h5 class="fw-bold mb-3">Product Table</h5>
+    <hr class="border-primary" />
+    <div class="table-responsive" style="height: 57vh">
+      <table class="table align-middle">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Category</th>
+            <th scope="col">
+              <button
+                class="btn btn-link p-0 d-flex align-items-center gap-1 text-dark fw-semibold text-decoration-none"
+                (click)="sortByPrice()"
+              >
+                Price (USD)
+                <i
+                  class="fa-solid"
+                  [ngClass]="{
+                    'fa-arrow-down-wide-short': priceSortDirection() === 'desc',
+                    'fa-arrow-up-wide-short': priceSortDirection() === 'asc',
+                    'fa-sort': !priceSortDirection()
+                  }"
+                ></i>
+              </button>
+            </th>
+
+            <th scope="col">Image</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          @for (product of productList(); track $index) {
+
+          <tr>
+            <td class="bg-white">{{ product.id }}</td>
+            <td class="bg-white">{{ product.title }}</td>
+            <td class="bg-white">
+              {{ product.description.slice(0, 60) }}
+              @if(product.description.length>60){
+              <a href="#">View More</a>
+              }
+            </td>
+            <td class="bg-white">{{ product.category }}</td>
+            <td class="bg-white">{{ product.price | currency : "USD" }}</td>
+            <td class="bg-white">
+              <i class="fa-regular fa-image text-primary fs-5"></i>
+            </td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
