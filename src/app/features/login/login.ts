@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { ValidationService } from '../../../shared/services/validation';
+import { ValidationService } from '../../shared/services/validation';
 import { HttpClient } from '@angular/common/http';
-import { ILoginRes } from '../../../shared/models/login';
+import { ILoginRes } from '../../shared/models/login';
 import { Credential } from '../../core/services/credential';
 import { Token } from '../../core/services/token';
 import { Router } from '@angular/router';

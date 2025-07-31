@@ -1,7 +1,8 @@
+import { Header } from './../../shared/services/header';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, linkedSignal, OnInit, signal } from '@angular/core';
-import { IUser, IUserRes } from '../../../shared/models/users';
+import { IUser, IUserRes } from '../../shared/models/users';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, filter, startWith } from 'rxjs';
 
@@ -15,8 +16,12 @@ export class Users implements OnInit {
   allUsers = signal<IUser[]>([]);
   filteredUsers = linkedSignal(() => [...this.allUsers()]);
   searchControl = new FormControl('');
-  constructor(private readonly http: HttpClient) {
+  constructor(
+    private readonly http: HttpClient,
+    private readonly header: Header
+  ) {
     this.getProductDetail();
+    this.header.heading.set('User Page');
   }
   ngOnInit(): void {
     this.searchControl.valueChanges

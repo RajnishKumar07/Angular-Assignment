@@ -1,7 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Loader } from '../shared/ui/loader/loader';
-import { Loader as LoaderService } from '../shared/services/loader';
+
+import { Loader as LoaderService } from './shared/services/loader';
+import { Loader } from './shared/ui/loader/loader';
 
 @Component({
   selector: 'app-root',

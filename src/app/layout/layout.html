@@ -65,7 +65,12 @@
   <div class="col-10 px-0">
     <nav class="navbar shadow shadow-sm bg-white">
       <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Dashboard </span>
+        <span class="navbar-brand mb-0 h1">
+          @if(heading()){
+
+          {{ heading() }}
+          }
+        </span>
         <div>
           <img
             [src]="userDetail()?.image"

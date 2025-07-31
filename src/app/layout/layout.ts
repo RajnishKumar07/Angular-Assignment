@@ -1,3 +1,4 @@
+import { Header } from './../shared/services/header';
 import { Component, computed, input } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { Credential } from '../core/services/credential';
@@ -11,10 +12,12 @@ import { Token } from '../core/services/token';
 })
 export class Layout {
   userDetail = computed(() => this.credential.userDetail());
+  heading = computed(() => this.header.heading());
   constructor(
     private readonly credential: Credential,
     private readonly tokenService: Token,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly header: Header
   ) {}
 
   logOut() {

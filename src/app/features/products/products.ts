@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, computed, signal } from '@angular/core';
-import { IProduct, IProductRes } from '../../../shared/models/product';
+import { IProduct, IProductRes } from '../../shared/models/product';
 import { CurrencyPipe, NgClass } from '@angular/common';
+import { Header } from '../../shared/services/header';
 
 @Component({
   selector: 'app-products',
@@ -24,8 +25,12 @@ export class Products {
       return products;
     }
   });
-  constructor(private readonly http: HttpClient) {
+  constructor(
+    private readonly http: HttpClient,
+    private readonly header: Header
+  ) {
     this.getProductDetail();
+    this.header.heading.set('Product Page');
   }
 
   private getProductDetail() {

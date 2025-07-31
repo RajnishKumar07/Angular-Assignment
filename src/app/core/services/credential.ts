@@ -1,5 +1,5 @@
 import { effect, Injectable, signal } from '@angular/core';
-import { ICredential } from '../../../shared/models/credential';
+import { ICredential } from '../../shared/models/credential';
 
 @Injectable({
   providedIn: 'root',
